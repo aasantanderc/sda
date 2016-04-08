@@ -1,0 +1,160 @@
+Capacitacion Dimensions 14 - 
+
+.- diferencias entre dimensins 12 y 14
+
+.-  nuevos productos de despliegues * serena deployment automation (SDA)
+
+automatiza despliegue
+seguiridad en los servidores
+reliza reportes propios
+Trabaja con cualquier versionador, no afecta a la herramienta del Desarrollador.
+
+
+Dimension 14 
+
+.-  nuevo modelo de trabajo
+.-  Nuevo cara
+.-  
+
+CC "FABMIDDLE" "PKG"/ATTRIBUTES=(Title="FABMIDDLE_OSB_PKG_IR70231_Comex")  /WORKSET="FABMIDDLE:FABMIDDLE_OSB_CONTINUIDAD_IR70231"
+
+
+find . -name "sudo" -ls 
+
+Buscar ubicacion exacta comando en unix
+
+which sudo
+
+comando actualiza Shows rol de Request
+
+PEND CHDOC /PRODUCT=SEFE
+PEND CHDOC /PRODUCT=RRHHBIO
+PEND CHDOC /PRODUCT=MI_APORTE
+PEND CHDOC /PRODUCT=PEP
+PEND CHDOC /PRODUCT=LOMBARDI
+PEND CHDOC /PRODUCT=FILENET
+PEND CHDOC /PRODUCT=EVAPERSLEG
+PEND CHDOC /PRODUCT=ERP
+PEND CHDOC /PRODUCT=ODS_OLD
+PEND CHDOC /PRODUCT=OER
+
+Package está en estado en construcción ? luego es avanzado por el desarrollador a ? Listo para QA ? Luego lo toma QA Banco y lo avanza a ? Desplegar en QA ? Sentra lo despliega y avanza a ? pruebas QA ? lo toma QA banco y lo promueve a ? listo para producción ? lo toma control de cambio ?  luego lo dejen en ? desplegar en producción ? lo toma Entel y realiza el despliegue ? luego lo pasa a ? estabilización ? donde lo vuelve a tomar control de cambio quien realiza una certificación y por ultimo lo pasan  a --> nivelación --> donde control de versiones le llega una notificación y debe realizar la nivelación hacia el Stream Mainline.
+
+
+
+pabargasz
+
+
+152.139.82.116 --> maquina de deploys
+
+user :  dmsys
+clave :  dmsys
+
+user : usrdmsys
+clave: Banco01
+
+cOPIAR ARCHIVOS AL HOME DE DMSYS
+
+scp deploys.log dmsys@152.139.82.116:home/dmsys
+
+
+
+=BUSCARV(D39;'Usuarios Lideres'!A:B;2;0)
+
+
+BUscarV
+
+=SI(A2=$E$1;FILA();"")
+
+-------------------------------------------------------------
+
+
+
+u104 --> Banco01
+u293 --> banco01
+
+
+uname -a --> validar que tipo de maquina es -----> AIX
+
+getconf LONG_BIT --> Validar Bit de la maquina (32 0 64)
+
+validar si tiene agente instalado...
+
+telnet 671 
+
+
+validar si el agente esta arriba
+
+cat /etc/services |grep pcms_sdp
+
+. /opt/serena/dimensions/12.2/cm/dmprofile
+dmstartup
+ps -fea |grep serena
+
+Verificar si contiene las librerias el dmcli
+ldd dmcli
+
+copiar las libreria que faltan conectandoce a la maquina que las tenga y ejecutar el siguiente comando:
+
+scp (RUTA DE LIBRERIA) XXXXX@XXXXXXXX:<RUTA DESTINO>
+scp /usr/lib64/libXp.so.6 usrdmsys@152.139.23.66:/usr/lib64
+
+REVISAR VERSION DE AGENTE INSTALADA :
+
+[usrdmsys@bchlnx04 ~]$ cd /opt/serena/dimensions/12.2/cm/prog
+[usrdmsys@bchlnx04 prog]$ ./dmcli -version
+
+si sale algun error verificarlo, a lo mejor falta una libreria..
+
+verificar el sistema Operativo de la maquina 
+
+cat /etc/issue
+
+VERIFICAR SI LAS MAQUINAS TIENEN HABILITADO SUDO - SSH - RSA
+
+
+sudo -l
+
+ssh usuario@maquina
+
+Muestra el grupo asociado a la cuenta conectada
+groups
+
+-------------------------------------------------------------
+
+find . -name "sudo" -ls 
+
+Buscar ubicacion exacta comando en unix
+
+which sudo
+
+
+ ssh dmsys@l19r
+
+
+.------------------------------------------
+
+Estimados, para la solicitud anterior existen un Stream en vuelo que ha modificado componentes de las que ustedes requieren en el nuevo incidente, por lo cual lo ideal sería Nivelar el Stream si este ya se instaló en producción para tener las versiones consistentes en el Stream Mainline y así exportar la versión valida al nuevo Stream.
+
+STREAM :  "INTERNETP:PORTALPUBLICO_DESARROLLO_PPM146612_2",
+PACKAGE: "INTERNETP_PKG_16", ?  DESPLEGAR EN PRODUCCION.
+
+Para realizar la nivelación, deberán canalizar la solicitud a través de Control de Cambios indicando el RFC asociado a la instalación que se generó en producción.
+
+Favor indicar según los antecedentes ya indicados que acción tomara el proyecto.
+Atentamente.
+_____________________________________________-
+
+Las componentes están en flujo en los Stream antes mencionados, es necesario validar si la componente está siendo modificada por estos Stream si es así validar que sean nivelados y hallan pasado a producción para así poder exportar las piezas con la última versión consistente. luego de esto exportar  las componentes al Stream que estas solicitando… si no pasamos la última versión deben tener cuidado al momento de nivelar en el Mainline, ya que las piezas en vuelo deben ir tomando los cambios que pasan a producción.
+
+
+
+
+152.139.146.105
+usrdmsys -- usrdmsys
+
+LABLNX67
+
+CNN /NN_NAME=152.139.146.237 /OS_NAME=UNIX /LOGICAL=N
+
+"T_DEBITO:CONTINUIDAD_IR73436",

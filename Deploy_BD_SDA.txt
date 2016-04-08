@@ -1,0 +1,43 @@
+
+Despliegue en Dimensions BD
+
+11c bus (BD)
+12d (BD)
+
+deployment de BD de manera automatica
+
+la ejecucion, 
+
+se reune con la gente BD para definir con la Gente de DBA.
+se deben definir pasos previos a las ejecuciones.
+
+todos los despliegues de BD actualmente es todo a MANO.
+
+tiene que ver un tema ordenado, ppara desarrollar de manera correcta.
+
+BD respaldos previos a las instalciones de BD.
+(Solo se realizan instalacion de Software y no Parches)
+
+orden de las instalaciones y secuencia de los compoenetes de BD.
+
+¿cuales son las sentencias para ejecutar las compoentes en BD?
+¿Como realixan la vuelta atras de BD (Rollback)?
+
+
+la misma gente de DBA serian los remponzables de ejecutar los despliegues, CDV realiza las configuraciones en dimensions segun lo previamente informado por DBA en las ejecuciones.
+(Actualmente los debiera ejecutar SENTRA en QQA y Entel en PRODUCCION)
+
+Actualemente COmex realiza iinstalaciones de BD, la idea es partir con ellos y ver las sentencias que ejecutan y ver la manera de traspasarcelas a SDA.
+
+para poder llevar esto acabo con finalidad, es poder cambiar las forma de trabajo, las forma de la adminsitracion,etc.
+
+" Motores de BD (Mysql, Oracle)" existen 6 motores de BD actualmente en BCH. (Teradata, m2, sysbase, mysql,oracle. sqlserver)
+"hay que verificar con SERENA cuales son las que tienen soporte con SDA."
+
+
+***********************************************************************************
+con quien de el equipo de BD nos puede seguir aportando informacion (Eduardo Llano)
+
+
+
+
